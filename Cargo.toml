@@ -1,0 +1,24 @@
+[package]
+name = "galaga-rs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "galaga_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+fui-rs = { path = "node_modules/@effindomv2/fui-rs" }
+
+[features]
+native-runtime = ["fui-rs/native-runtime"]
+
+[profile.dev]
+debug = 0
+panic = "abort"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
